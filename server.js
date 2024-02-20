@@ -9,6 +9,8 @@ const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
 
 const app = express();
+const helmet = require('helmet');
+app.use(helmet.frameguard({action: 'deny'}))
 
 app.use('/public', express.static(process.cwd() + '/public'));
 
